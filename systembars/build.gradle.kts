@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("maven-publish") // If you plan to publish your library
+    id("maven-publish")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 group = "com.github.kaustubhsuryakantdeshpande"
