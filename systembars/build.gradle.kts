@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.github.kaustubhsuryakantdeshpande"
-version = "1.0.0"
+version = "1.0.2" // <-- Updated version
 
 android {
     namespace = "tech.kaustubhdeshpande.systembars"
@@ -53,4 +53,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.kaustubhsuryakantdeshpande"
+                artifactId = "systembars"
+                version = "1.0.2" // <-- Must match version above and your tag!
+            }
+        }
+    }
 }
