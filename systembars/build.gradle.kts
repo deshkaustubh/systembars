@@ -4,6 +4,9 @@ plugins {
     id("maven-publish") // If you plan to publish your library
 }
 
+group = "com.github.kaustubhsuryakantdeshpande"
+version = "1.0.0"
+
 android {
     namespace = "tech.kaustubhdeshpande.systembars"
     compileSdk = 36
