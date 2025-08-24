@@ -3,7 +3,14 @@ package tech.kaustubhdeshpande.systembars
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -15,7 +22,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.zIndex
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsControllerCompat
 
 enum class SystemBarsMode {
     Auto,
@@ -46,7 +52,14 @@ fun SystemBars(
 
     val isAndroid14OrAbove = Build.VERSION.SDK_INT >= 34
 
-    LaunchedEffect(statusBarColor, navigationBarColor, lightStatusBarIcons, lightNavigationBarIcons, resolvedMode, isAndroid14OrAbove) {
+    LaunchedEffect(
+        statusBarColor,
+        navigationBarColor,
+        lightStatusBarIcons,
+        lightNavigationBarIcons,
+        resolvedMode,
+        isAndroid14OrAbove
+    ) {
         window?.let {
             if (resolvedMode == SystemBarsMode.FullControl) {
                 if (!isAndroid14OrAbove) {
